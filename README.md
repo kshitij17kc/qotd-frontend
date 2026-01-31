@@ -56,7 +56,7 @@ These elements help build consistency and habit formation.
 ##  Live Demo
 
 Deployed using Netlify:  
- [qotd-frontend.netlify.app]
+ [https://qotd-frontend.netlify.app]
 
 ---
 
