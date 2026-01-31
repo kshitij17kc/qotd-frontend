@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>QOTD | TechLearn</title>
+
+<style>
+:root {
+  --blue: #2563eb;
+  --blue-dark: #1e40af;
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --text: #0f172a;
+  --muted: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  height: 72px;
+  background: linear-gradient(90deg, var(--blue-dark), var(--blue));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  font-weight: 600;
+}
+
+header span {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.container {
+  display: flex;
+  height: calc(100vh - 72px);
+}
+
+.problem {
+  width: 36%;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.problem-card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.badge {
+  background: #22c55e;
+  color: white;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.editor {
+  width: 64%;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.editor-card {
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.editor-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editor-header select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 18px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+.actions {
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+.run {
+  background: #e0e7ff;
+}
+
+.submit {
+  background: var(--blue);
+  color: white;
+}
+
+.output {
+  background: #0f172a;
+  color: #e5e7eb;
+  padding: 14px 18px;
+  font-family: monospace;
+  border-radius: 0 0 16px 16px;
+}
+
+.sidebar {
+  width: 260px;
+  padding: 18px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.07);
+}
+
+.card h4 {
+  margin-bottom: 8px;
+}
+
+.hint {
+  background: #eef2ff;
+  padding: 10px;
+  border-radius: 8px;
+  display: none;
+  margin-top: 8px;
+}
+
+.show {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+  .problem, .editor {
+    width: 100%;
+  }
+  .sidebar {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div>
+    TechLearn Solutions<br>
+    <span>Question of the Day</span>
+  </div>
+  <div>
+    🔥 Streak 5 &nbsp; | &nbsp; ⏱ Avg 15 min
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="problem">
+    <div class="problem-card">
+      <span class="badge">Easy</span>
+      <h2>Two Sum</h2>
+      <p>
+        Given an array of integers <b>nums</b> and an integer <b>target</b>,
+        return indices of the two numbers such that they add up to target.
+      </p>
+      <pre>
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+      </pre>
+    </div>
+  </div>
+
+  <div class="editor">
+    <div class="editor-card">
+
+      <div class="editor-header">
+        <select>
+          <option>JavaScript</option>
+          <option>Python</option>
+          <option>C++</option>
+        </select>
+        <span style="color:var(--muted)">Auto-saved</span>
+      </div>
+
+      <textarea>// write your solution here</textarea>
+
+      <div class="actions">
+        <button class="run" onclick="runCode()">Run</button>
+        <button class="submit" onclick="submitCode()">Submit</button>
+      </div>
+
+      <div class="output" id="output">
+        Output will appear here…
+      </div>
+
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="card">
+      <h4>📊 Stats</h4>
+      <p>Attempts: 12,450</p>
+      <p>Success Rate: 62%</p>
+    </div>
+
+    <div class="card">
+      <h4>💡 Hint</h4>
+      <button class="run" onclick="toggleHint()">Show Hint</button>
+      <div id="hint" class="hint">
+        Use a hashmap to store visited values.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function runCode() {
+  document.getElementById("output").innerText =
+    "Code ran successfully.";
+}
+
+function submitCode() {
+  document.getElementById("output").innerText =
+    "Accepted ✅ All test cases passed.";
+}
+
+function toggleHint() {
+  document.getElementById("hint").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
