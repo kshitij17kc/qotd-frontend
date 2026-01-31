@@ -56,11 +56,11 @@ These elements help build consistency and habit formation.
 ##  Live Demo
 
 Deployed using Netlify:  
-👉 [Live URL here]
+ [qotd-frontend.netlify.app]
 
 ---
 
-## 📂 Repository
+##  Repository
 
-👉 [GitHub Repository Link]
+ [https://github.com/kshitij17kc/qotd-frontend]
 
